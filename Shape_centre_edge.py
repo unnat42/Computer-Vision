@@ -1,3 +1,6 @@
+#Code Courtesy to Adrian from pyimagesearch
+#The image to use is also given in the repo
+
 import cv2
 import imutils
 
@@ -14,7 +17,7 @@ cnts = cv2.findContours(thresh.copy(),cv2.RETR_EXTERNAL,cv2.CHAIN_APPROX_SIMPLE)
 cnts = imutils.grab_contours(cnts)  #we have the coordinates of the contours with this command
 
 for c in cnts:
-    if cv2.contourArea(c)> 60:
+    if cv2.contourArea(c)> 60: #If not used then get a zerodivision error. The threshold value can be anything. Tweak and try
          M = cv2.moments(c)
 #    print(c)
          cX = int(M["m10"] / M["m00"])
