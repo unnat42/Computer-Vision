@@ -1,0 +1,7 @@
+lsusb -a ==> gives info on all devices connected 
+
+to get index of a particular camera 
+
+ls -a ~/dev/v4l/by-id ==> the output will be the index0 file of format {Vendor_ID}_{Product_ID}-video-index0
+
+Now, insert the path to this file in cv2.VideoCapture({Insert_path}) ==> will always pick a particular camera with the desired Serial_ID and hence no need to use udev rules to create sym link 
